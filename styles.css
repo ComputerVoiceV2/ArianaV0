@@ -8,14 +8,46 @@ body {
     justify-content: center;
     height: 100vh;
     text-align: center;
-    background-color: #f0f0f0;
+    background-color: #000;
+    color: #fff;
+    background-image: url('https://images.pexels.com/photos/593467/pexels-photo-593467.jpeg?auto=compress&cs=tinysrgb&w=600'); /* Replace with your own image URL */
+    background-size: cover;
 }
 
 textarea {
     width: 300px;
     height: 150px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 button {
     margin: 10px;
+    background-color: #ff0;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f00;
+    color: white;
+}
+
+@keyframes flashing {
+    0%   {background-color: #f00;}
+    25%  {background-color: #0f0;}
+    50%  {background-color: #00f;}
+    100% {background-color: #f0f;}
+}
+
+h1 {
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }

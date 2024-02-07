@@ -10,17 +10,23 @@ body {
     text-align: center;
     background-color: #000;
     color: #fff;
-    background-image: url('https://images.pexels.com/photos/593467/pexels-photo-593467.jpeg?auto=compress&cs=tinysrgb&w=600'); /* Replace with your own image URL */
+    background-image: url('https://example.com/disco-background.jpg'); /* Replace with your own image URL */
     background-size: cover;
 }
 
-textarea {
+h1, h2, p {
+    color: #fff;
+}
+
+textarea, input[type="email"] {
     width: 300px;
-    height: 150px;
+    height: 50px;
+    margin: 10px 0;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.7);
 }
 
-button {
+button, input[type="submit"] {
     margin: 10px;
     background-color: #ff0;
     color: #000;
@@ -34,7 +40,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, input[type="submit"]:hover {
     background-color: #f00;
     color: white;
 }

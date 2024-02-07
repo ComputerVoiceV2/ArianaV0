@@ -12,6 +12,7 @@ document.getElementById('record').addEventListener('click', function() {
         .then(function(stream) {
             mediaRecorder = new MediaRecorder(stream);
             mediaRecorder.start();
+            console.log('Recording started');
             document.getElementById('recordingStatus').textContent = 'Recording...';
             document.getElementById('stop').disabled = false;
             mediaRecorder.ondataavailable = function(e) {
@@ -24,11 +25,16 @@ document.getElementById('record').addEventListener('click', function() {
 });
 
 document.getElementById('stop').addEventListener('click', function() {
-    mediaRecorder.stop();
-    document.getElementById('recordingStatus').textContent = 'Recording stopped.';
-    document.getElementById('stop').disabled = true;
-    const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
-    chunks = [];
-    const audioURL = window.URL.createObjectURL(blob);
-    console.log(audioURL); // You can use this URL to play the audio or save it.
+    if (mediaRecorder) {
+        mediaRecorder.stop();
+        console.log('Recording stopped');
+        document.getElementById('recordingStatus').textContent = 'Recording stopped.';
+        document.getElementById('stop').disabled = true;
+        const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+        chunks = [];
+        const audioURL = window.URL.createObjectURL(blob);
+        console.log(audioURL); // You can use this URL to play the audio or save it.
+    } else {
+        console.log('No mediaRecorder instance found');
+    }
 });
